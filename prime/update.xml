@@ -3,6 +3,6 @@
 <item>
   <version>1.0.0.1</version>
   <url>https://raw.githubusercontent.com/AnwarJibawi/arselli/main/prime/update.zip</url>
-  <changelog></changelog>
+  <changelog>https://raw.githubusercontent.com/AnwarJibawi/arselli/main/prime/log.txt</changelog>
   <mandatory>false</mandatory>
 </item>
