@@ -2,6 +2,6 @@
 <item>
   <version>1.0.0.1</version>
   <url>https://raw.githubusercontent.com/alwazirconnect/arselli/main/alwazir/update/update.zip</url>
-  <changelog>https://raw.githubusercontent.com/alwazirconnect/arselli/main/alwazir/update/releases.txt</changelog>
+  <changelog>https://raw.githubusercontent.com/alwazirconnect/arselli/main/alwazir/update/releases.html</changelog>
   <mandatory>false</mandatory>
 </item>
