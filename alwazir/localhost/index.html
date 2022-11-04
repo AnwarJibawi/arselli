@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en" oncontextmenu="return false">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alwazir</title>
+ 
+
+    <script class="code" src="ControlBar.js"></script>
+    <script src="http://127.0.0.1:1994/primaryKey.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://reference.dashif.org/dash.js/latest/samples/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://reference.dashif.org/dash.js/latest/contrib/akamai/controlbar/controlbar.css">
+    <link href="https://reference.dashif.org/dash.js/latest/samples/lib/main.css" rel="stylesheet">
+ 
+ 
+
+    <script  class="code">
+        function play(id) {
+
+
+            var protData = {
+            "com.widevine.alpha": {
+                "serverURL": "http://127.0.0.1:1994/rrrrrrrrr",
+                "httpRequestHeaders": {
+                    "X-AxDRM-Message": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2ZXJzaW9uIjoxLCJjb21fa2V5X2lkIjoiYjMzNjRlYjUtNTFmNi00YWUzLThjOTgtMzNjZWQ1ZTMxYzc4IiwibWVzc2FnZSI6eyJ0eXBlIjoiZW50aXRsZW1lbnRfbWVzc2FnZSIsImZpcnN0X3BsYXlfZXhwaXJhdGlvbiI6NjAsInBsYXlyZWFkeSI6eyJyZWFsX3RpbWVfZXhwaXJhdGlvbiI6dHJ1ZX0sImtleXMiOlt7ImlkIjoiOWViNDA1MGQtZTQ0Yi00ODAyLTkzMmUtMjdkNzUwODNlMjY2IiwiZW5jcnlwdGVkX2tleSI6ImxLM09qSExZVzI0Y3Iya3RSNzRmbnc9PSJ9XX19.FAbIiPxX8BHi9RwfzD7Yn-wugU19ghrkBFKsaCPrZmU"
+                },
+                priority: 0
+            }
+        };
+        var videoElement,
+            player,
+            url = "http://127.0.0.1:1994/akamai/hd/manifest.mpd";
+
+
+           
+            videoElement = document.querySelector('.videoContainer video');
+            var player = dashjs.MediaPlayer().create();
+
+            player.initialize(videoElement, url, true);
+            player.setProtectionData(protData);
+            var controlbar = new ControlBar(player);
+            controlbar.initialize();
+        }
+    </script>
+</head>
+<body style="overflow: hidden !important;">
+
+    <div class="videoContainer" id="videoContainer">
+        <video preload="auto" autoplay></video>
+        <div id="videoController" class="video-controller unselectable">
+            <div id="playPauseBtn" class="btn-play-pause" title="Play/Pause">
+                <span id="iconPlayPause" class="icon-play"></span>
+            </div>
+            <span id="videoTime" class="time-display">00:00:00</span>
+            <div id="fullscreenBtn" class="btn-fullscreen control-icon-layout" title="Fullscreen">
+                <span class="icon-fullscreen-enter"></span>
+            </div>
+            <div id="bitrateListBtn" class="control-icon-layout" title="Bitrate List">
+                <span class="icon-bitrate"></span>
+            </div>
+            <input type="range" id="volumebar" class="volumebar" value="1" min="0" max="1" step=".01"/>
+            <div id="muteBtn" class="btn-mute control-icon-layout" title="Mute">
+                <span id="iconMute" class="icon-mute-off"></span>
+            </div>
+            <div id="trackSwitchBtn" class="control-icon-layout" title="A/V Tracks">
+                <span class="icon-tracks"></span>
+            </div>
+            <div id="captionBtn" class="btn-caption control-icon-layout" title="Closed Caption">
+                <span class="icon-caption"></span>
+            </div>
+            <span id="videoDuration" class="duration-display">00:00:00</span>
+            <div class="seekContainer">
+                <div id="seekbar" class="seekbar seekbar-complete">
+                    <div id="seekbar-buffer" class="seekbar seekbar-buffer"></div>
+                    <div id="seekbar-play" class="seekbar seekbar-play"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        play("http://127.0.0.1:1994/akamai/hd/manifest.mpd");
+    });
+</script>
+<script src="https://reference.dashif.org/dash.js/latest/samples/highlighter.js"></script>
+</body>
+</html>
